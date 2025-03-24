@@ -49,11 +49,7 @@ print("Task 3:",adventures_of_tom_sawyer)
 """ Виведіть, скількі разів у тексті зустрічається літера "h"
 """
 value_to_find: str = "h"
-counter: int = 0
-
-for value in adventures_of_tom_sawyer:
-    if value == value_to_find:
-        counter += 1
+counter: int = adventures_of_tom_sawyer.count(value_to_find)
 
 print(f"Літера {value_to_find} зустрічається в тексті", counter,"разів.")
 
@@ -116,9 +112,6 @@ sent_by_index: str = adventures_of_tom_sawyer_sentences[index_sent]
 
 sent_splitted: list = sent_by_index.split()
 
-counter: int = 0
+word_count: int = len(sent_splitted)
 
-for word in sent_splitted:
-    counter += 1
-
-print(f"Останнє речення складається з {counter} слів.")
+print(f"Останнє речення складається з {word_count} слів.")
