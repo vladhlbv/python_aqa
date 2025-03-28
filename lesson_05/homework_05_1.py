@@ -51,16 +51,5 @@ car_data_filtered: dict = {car: (colour, year, engine_volume, body_type, price) 
 
 car_data_sorted: list = sorted(car_data_filtered.items(), key=lambda item: item[1][4], reverse = True)
 
-top_5_items: list = []
-counter: int = 0
-
-while counter < 5:
-    top_5_items.append(car_data_sorted[counter])
-    counter += 1
-
-car_data_trimmed: dict = {}
-
-for key, value in top_5_items:
-    car_data_trimmed.setdefault(key, value)
-
-print (car_data_trimmed)
+for car_data in car_data_sorted[:5]:
+    print(car_data)
