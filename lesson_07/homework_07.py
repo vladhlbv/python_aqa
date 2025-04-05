@@ -1,9 +1,13 @@
 # task 1
 """ Задача - надрукувати табличку множення на задане число, але
 лише до максимального значення для добутку - 25.
-Код майже готовий, треба знайти помилки та випраавити\доповнити.
+Код майже готовий, треба знайти помилки та виправити\доповнити.
 """
-def multiplication_table(number):
+def multiplication_table(number: int) -> None:
+    """
+    Builds multiplication table for insert number until result becomes 25
+    :param number: number for which multiplication table should be built
+    """
     # Initialize the appropriate variable
     multiplier = 1
 
@@ -13,13 +17,13 @@ def multiplication_table(number):
         # десь тут помилка, а може не одна
         if  result > 25:
             # Enter the action to take if the result is greater than 25
-            pass
+            break
         print(str(number) + "x" + str(multiplier) + "=" + str(result))
 
         # Increment the appropriate variable
         multiplier += 1
 
-# multiplication_table(3)
+multiplication_table(3)
 # Should print:
 # 3x1=3
 # 3x2=6
@@ -31,7 +35,12 @@ def multiplication_table(number):
 # task 2
 """  Написати функцію, яка обчислює суму двох чисел.
 """
-def sum_func(numb_1, numb_2):
+def sum_func(numb_1: int, numb_2: int) -> None:
+    """
+    Sums two input numbers
+    :param numb_1: first number to sum
+    :param numb_2: second number to sum
+    """
     rslt = numb_1 + numb_2
     print(str(numb_1) + "+" + str(numb_2) + "=" + str(rslt))
 
@@ -41,7 +50,11 @@ sum_func(int(input("Please input number 1:\n")), int(input("Please input number 
 """  Написати функцію, яка розрахує середнє арифметичне списку чисел.
 """
 
-def avg_numb(numb_list):
+def avg_numb(numb_list: list) -> None:
+    """
+    Counts the average number from provided list of numbers
+    :param numb_list: list of numbers to count the average from
+    """
     result = sum(numb_list) / len(numb_list)
     print("Average number of list " + str(numb_list) + " is " + str(result))
 
@@ -51,7 +64,11 @@ avg_numb([1,2,3,4,5])
 """  Написати функцію, яка приймає рядок та повертає його у зворотному порядку.
 """
 
-def str_reverse(new_str):
+def str_reverse(new_str: str) -> None:
+    """
+    Reverses provided string
+    :param new_str: string for the reverse
+    """
     string_rev: str = new_str[::-1]
     print("Reverse of the string " + str(new_str) + " is " + str(string_rev))
 
@@ -61,7 +78,11 @@ str_reverse(input("Please type your string:\n"))
 """  Написати функцію, яка приймає список слів та повертає найдовше слово у списку.
 """
 
-def longest_word(new_words):
+def longest_word(new_words: list) -> None:
+    """
+    Counts length of provided words in the list and outputs the longest word
+    :param new_words: list of words
+    """
     lng_word = max(new_words, key=len)
     print("Longest word is:", lng_word)
 
@@ -72,7 +93,13 @@ longest_word(['Kateryna', 'Andrii', 'Mariya', 'Yevhen', 'Valentyn', 'Vlad'])
 у перший рядок, якщо другий рядок є підрядком першого рядка, та -1, якщо другий рядок
 не є підрядком першого рядка."""
 
-def find_substring(str1, str2):
+def find_substring(str1: str, str2: str) -> int:
+    """
+    Returns index of string 2 if it is a substring of main string
+    :param str1: main string
+    :param str2: string 2
+    :return: index of the substring
+    """
     if str2 in str1:
         return str1.find(str2)
     else:
@@ -88,7 +115,11 @@ print(find_substring(str1, str2)) # поверне -1
 
 # task 7
 
-def unique_ten_chars(new_string):
+def unique_ten_chars(new_string: str) -> None:
+    """
+    Checks if input string has more than 10 unique characters
+    :param new_string: input string
+    """
     new_string_set: set = set(new_string)
     if len(new_string_set) > 10:
         print("True")
@@ -99,7 +130,11 @@ unique_ten_chars(input("Please type something here:\n"))
 
 # task 8
 
-def even_sum(num_list):
+def even_sum(num_list: list) -> None:
+    """
+    Sums only even numbers from the input list
+    :param num_list: input list
+    """
     even_num_sum: int = sum(number for number in num_list if number % 2 == 0)
     print("Sum of even numbers in the list is:", even_num_sum)
 
@@ -107,7 +142,11 @@ even_sum([1, 10, 34, 81, 22, 5, 7, 24, 57, 2])
 
 # task 9
 
-def str_cont_h(user_inp):
+def str_cont_h(user_inp: str) -> None:
+    """
+    Finds letter H in input user string, stops only when user inputs string with letter H.
+    :param user_inp: user input string
+    """
     find_h: int = user_inp.find('h')
     while find_h == -1:
         user_inp: str = input("Input any word with letter H or h:\n").lower()
@@ -117,12 +156,16 @@ str_cont_h(input("Input any word with letter H or h:\n").lower())
 
 # task 10
 
-def str_from_list(lst1):
-        lst2: list = []
-        for value in lst1:
-            if type(value) == str:
-                lst2.append(value)
-        print(lst2)
+def str_from_list(lst1: list) -> None:
+    """
+    Prints only string values from the provided list of values
+    :param lst1: input list of values
+    """
+    lst2: list = []
+    for value in lst1:
+        if type(value) == str:
+            lst2.append(value)
+    print(lst2)
 
 str_from_list(['1', '2', 3, True, 'False', 5, '6', 7, 8, 'Python', 9, 0, 'Lorem Ipsum'])
 
