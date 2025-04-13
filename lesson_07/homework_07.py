@@ -23,7 +23,8 @@ def multiplication_table(number: int) -> None:
         # Increment the appropriate variable
         multiplier += 1
 
-multiplication_table(3)
+# multiplication_table(3)
+
 # Should print:
 # 3x1=3
 # 3x2=6
@@ -35,58 +36,66 @@ multiplication_table(3)
 # task 2
 """  Написати функцію, яка обчислює суму двох чисел.
 """
-def sum_func(numb_1: int, numb_2: int) -> None:
+def sum_func(numb_1: int | float, numb_2: int | float) -> int | float:
     """
     Sums two input numbers
     :param numb_1: first number to sum
     :param numb_2: second number to sum
+    :return: sum of two values
     """
     rslt = numb_1 + numb_2
-    print(str(numb_1) + "+" + str(numb_2) + "=" + str(rslt))
+    return rslt
+    # print(str(numb_1) + "+" + str(numb_2) + "=" + str(rslt))
 
-sum_func(int(input("Please input number 1:\n")), int(input("Please input number 2:\n")))
+# sum_func(int(input("Please input number 1:\n")), int(input("Please input number 2:\n")))
 
 # task 3
 """  Написати функцію, яка розрахує середнє арифметичне списку чисел.
 """
 
-def avg_numb(numb_list: list) -> None:
+def avg_numb(numb_list: list) -> float:
     """
     Counts the average number from provided list of numbers
     :param numb_list: list of numbers to count the average from
+    :return: average value from list of values
     """
     result = sum(numb_list) / len(numb_list)
-    print("Average number of list " + str(numb_list) + " is " + str(result))
+    return result
+    # print("Average number of list " + str(numb_list) + " is " + str(result))
 
-avg_numb([1,2,3,4,5])
+# avg_numb([1,2,3,4,5])
 
 # task 4
 """  Написати функцію, яка приймає рядок та повертає його у зворотному порядку.
 """
 
-def str_reverse(new_str: str) -> None:
+def str_reverse(new_str: str) -> str:
     """
     Reverses provided string
     :param new_str: string for the reverse
+    :return reversed string
     """
     string_rev: str = new_str[::-1]
-    print("Reverse of the string " + str(new_str) + " is " + str(string_rev))
+    return string_rev
+    # print("Reverse of the string " + str(new_str) + " is " + str(string_rev))
 
-str_reverse(input("Please type your string:\n"))
+# str_reverse(input("Please type your string:\n"))
 
 # task 5
 """  Написати функцію, яка приймає список слів та повертає найдовше слово у списку.
 """
 
-def longest_word(new_words: list) -> None:
+def longest_word(new_words: list[str]) -> str:
     """
     Counts length of provided words in the list and outputs the longest word
     :param new_words: list of words
+    :return: longest value from the list
     """
-    lng_word = max(new_words, key=len)
-    print("Longest word is:", lng_word)
+    lng_word: str = max(new_words, key=len)
+    return lng_word
+    # print("Longest word is:", lng_word)
 
-longest_word(['Kateryna', 'Andrii', 'Mariya', 'Yevhen', 'Valentyn', 'Vlad'])
+# longest_word(['Kateryna', 'Andrii', 'Mariya', 'Yevhen', 'Valentyn', 'Vlad'])
 
 # task 6
 """  Написати функцію, яка приймає два рядки та повертає індекс першого входження другого рядка
@@ -105,13 +114,13 @@ def find_substring(str1: str, str2: str) -> int:
     else:
         return -1
 
-str1 = "Hello, world!"
-str2 = "world"
-print(find_substring(str1, str2)) # поверне 7
-
-str1 = "The quick brown fox jumps over the lazy dog"
-str2 = "cat"
-print(find_substring(str1, str2)) # поверне -1
+# str1 = "Hello, world!"
+# str2 = "world"
+# print(find_substring(str1, str2)) # поверне 7
+#
+# str1 = "The quick brown fox jumps over the lazy dog"
+# str2 = "cat"
+# print(find_substring(str1, str2)) # поверне -1
 
 # task 7
 
@@ -126,7 +135,7 @@ def unique_ten_chars(new_string: str) -> None:
     else:
         print("False")
 
-unique_ten_chars(input("Please type something here:\n"))
+# unique_ten_chars(input("Please type something here:\n"))
 
 # task 8
 
@@ -138,7 +147,7 @@ def even_sum(num_list: list) -> None:
     even_num_sum: int = sum(number for number in num_list if number % 2 == 0)
     print("Sum of even numbers in the list is:", even_num_sum)
 
-even_sum([1, 10, 34, 81, 22, 5, 7, 24, 57, 2])
+# even_sum([1, 10, 34, 81, 22, 5, 7, 24, 57, 2])
 
 # task 9
 
@@ -152,7 +161,7 @@ def str_cont_h(user_inp: str) -> None:
         user_inp: str = input("Input any word with letter H or h:\n").lower()
         find_h: int = user_inp.find('h')
 
-str_cont_h(input("Input any word with letter H or h:\n").lower())
+# str_cont_h(input("Input any word with letter H or h:\n").lower())
 
 # task 10
 
@@ -167,7 +176,7 @@ def str_from_list(lst1: list) -> None:
             lst2.append(value)
     print(lst2)
 
-str_from_list(['1', '2', 3, True, 'False', 5, '6', 7, 8, 'Python', 9, 0, 'Lorem Ipsum'])
+# str_from_list(['1', '2', 3, True, 'False', 5, '6', 7, 8, 'Python', 9, 0, 'Lorem Ipsum'])
 
 """  Оберіть будь-які 4 таски з попередніх домашніх робіт та
 перетворіть їх у 4 функції, що отримують значення та повертають результат.
