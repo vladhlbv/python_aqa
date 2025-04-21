@@ -1,4 +1,6 @@
-from lesson_10.homework_10 import log_event
+import pytest
+from lesson_10.homework_10 import log_event, get_last_username, get_last_status, get_last_log_level
+
 
 class TestLogger:
 
@@ -10,12 +12,7 @@ class TestLogger:
         status: str = "success"
         log_event(username=username, status=status)
 
-        with open("login_system.log", "r") as f:
-            lines = f.readlines()
-            if lines:
-                last_line = lines[-1]
-
-        assert username in last_line, f"{username} does not contain in {last_line}"
+        assert username == get_last_username(), f"Actual username:{username} does not equal to expected username:{get_last_username()}"
 
 
     def test_log_status(self):
@@ -26,12 +23,7 @@ class TestLogger:
         status: str = "expired"
         log_event(username=username, status=status)
 
-        with open("login_system.log", "r") as f:
-            lines = f.readlines()
-            if lines:
-                last_line = lines[-1]
-
-        assert status in last_line, f"{status} does not contain in {last_line}"
+        assert status == get_last_status(), f"Actual status:{status} does not equal to expected status:{get_last_status()}"
 
 
     def test_log_level_info(self):
@@ -43,12 +35,7 @@ class TestLogger:
         level: str = "INFO"
         log_event(username=username, status=status)
 
-        with open("login_system.log", "r") as f:
-            lines = f.readlines()
-            if lines:
-                last_line = lines[-1]
-
-        assert level in last_line, f"{level} does not contain in {last_line}"
+        assert level == get_last_log_level(), f"Actual log level:{level} does not equal to expected log level:{get_last_log_level()}"
 
 
     def test_log_level_warning(self):
@@ -60,12 +47,7 @@ class TestLogger:
         level: str = "WARNING"
         log_event(username=username, status=status)
 
-        with open("login_system.log", "r") as f:
-            lines = f.readlines()
-            if lines:
-                last_line = lines[-1]
-
-        assert level in last_line, f"{level} does not contain in {last_line}"
+        assert level == get_last_log_level(), f"Actual log level:{level} does not equal to expected log level:{get_last_log_level()}"
 
 
     def test_log_level_error(self):
@@ -77,9 +59,4 @@ class TestLogger:
         level: str = "ERROR"
         log_event(username=username, status=status)
 
-        with open("login_system.log", "r") as f:
-            lines = f.readlines()
-            if lines:
-                last_line = lines[-1]
-
-        assert level in last_line, f"{level} does not contain in {last_line}"
+        assert level == get_last_log_level(), f"Actual log level:{level} does not equal to expected log level:{get_last_log_level()}"
