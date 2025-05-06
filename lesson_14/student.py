@@ -5,7 +5,7 @@ class Student:
         self.age = age
         self.__avg_mark = avg_mark
 
-    def get_info(self):
+    def __str__(self):
         return f"Student First Name: {self.first_name}, Last Name: {self.last_name}, Age: {self.age}"
 
     def return_avg_mark(self):
