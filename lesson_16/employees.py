@@ -40,15 +40,15 @@ class TeamLead(Manager, Developer):
         return f"{Employee.__str__(self)}, employee department: {self.department}, employee programming language: {self.programming_language}, employee team size: {self.team_size}"
 
 
+if __name__ == '__main__':
+    employee = Employee(name="Vlad", salary=1000)
+    print(employee)
 
-employee = Employee(name="Vlad", salary=1000)
-print(employee)
+    manager = Manager(name="Serhii", salary=2000, department="IT")
+    print(manager)
 
-manager = Manager(name="Serhii", salary=2000, department="IT")
-print(manager)
+    developer = Developer(name="Andrii", salary=3000, programming_language="Python")
+    print(developer)
 
-developer = Developer(name="Andrii", salary=3000, programming_language="Python")
-print(developer)
-
-team_lead = TeamLead(name="Vasyl",salary=5000, department="IT", programming_language="Python", team_size=4)
-print(team_lead)
+    team_lead = TeamLead(name="Vasyl",salary=5000, department="IT", programming_language="Python", team_size=4)
+    print(team_lead)
