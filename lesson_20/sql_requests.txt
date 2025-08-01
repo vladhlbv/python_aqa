@@ -1,0 +1,38 @@
+CREATE TABLE categories (
+    category_id SERIAL PRIMARY KEY,
+    category_name VARCHAR(100) NOT NULL
+);
+
+
+CREATE TABLE products (
+    product_id SERIAL PRIMARY KEY,
+    product_name VARCHAR(100) NOT NULL,
+    product_brand VARCHAR(50),
+    category_id INT REFERENCES categories(category_id),
+    product_description VARCHAR(100),
+    product_price DECIMAL(10, 2) NOT NULL,
+    product_tax_rate INT
+);
+
+
+INSERT INTO categories (category_id, category_name) VALUES
+(1, 'Phones'),
+(2, 'Tablets'),
+(3, 'Laptops');
+
+
+INSERT INTO products (product_id, product_name, product_brand, category_id, product_description, product_price, product_tax_rate) VALUES
+(1, 'Apple IPhone 16 Pro Max', 'Apple', 1, 'Newest Apple phone for year 2025.', 1500, 20),
+(2, 'Samsung Galaxy S25 Ultra', 'Samsung', 1, 'Newest Samsung phone for year 2025.', 1400, 20),
+(3, 'Nokia 3310', 'Nokia', 1, 'The most durable phone ever created!', 300, 20),
+(4, 'Apple Ipad Pro 11', 'Apple', 2, 'Newest Apple tablet for year 2024', 2200, 20),
+(5, 'Samsung Galaxy Tab S10 Ultra', 'Samsung', 2, 'Newest Samsung tablet for year 2024', 2000, 20),
+(6, 'Microsoft Surface Pro Copilot+ 12', 'Microsoft', 2, 'Newest Microsoft tablet for year 2025', 1400, 20),
+(7, 'Apple Macbook Pro 16', 'Apple', 3, 'Newest Apple laptop for year 2024', 2200, 20),
+(8, 'ASUS ROG Zephyrus G16', 'ASUS', 3, 'Newest ASUS laptop for year 2024', 2500, 20);
+
+
+SELECT pr.product_id, pr.product_name, pr.product_brand, ct.category_name, pr.product_description, pr.product_price, pr.product_tax_rate
+FROM products AS pr
+INNER JOIN categories AS ct ON pr.category_id = ct.category_id
+ORDER BY pr.product_id ASC;
