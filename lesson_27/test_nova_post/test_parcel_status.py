@@ -9,20 +9,10 @@ class TestNovaPost:
 
         nova_post_track_page.open()
 
-        time.sleep(1)
-
         nova_post_track_page.input_track_number("20451211207022")
-
-        time.sleep(1)
 
         nova_post_track_page.click_on_search_button()
 
-        time.sleep(1)
-
         nova_post_track_page.click_on_agree_button()
 
-        time.sleep(1)
-
         nova_post_track_page.check_parcel_status("Отримана")
-
-        time.sleep(1)
